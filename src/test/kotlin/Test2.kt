@@ -8,7 +8,7 @@ import org.junit.Assert.assertEquals
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-class EmbeddedServerTest: TestServer() {
+class EmbeddedServerTest2: TestServer() {
     @Test
     fun rootRouteRespondsWithHelloKtorString(): Unit = runBlocking {
         val response: String = HttpClient().get("http://localhost:7082/").body()
