@@ -11,7 +11,7 @@ class EmbeddedServerTest: TestServer() {
     @Test
     fun rootRouteRespondsWithHelloKtorString(): Unit = runBlocking {
         val response: String = HttpClient().get("http://localhost:7082/").body()
-        assertEquals("Hello, Ktor!", response)
+        assertEquals("Hello, Ktor", response)
     }
 }
 

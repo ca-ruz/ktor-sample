@@ -4,6 +4,7 @@ import kotlinx.coroutines.runBlocking
 import org.junit.After
 import org.junit.Before
 import java.util.concurrent.TimeUnit
+import java.io.File
 
 abstract class TestServer {
     private lateinit var serverProcess: Process
@@ -17,5 +18,12 @@ abstract class TestServer {
     @After
     fun stopServer(): Unit = runBlocking {
         serverProcess.destroy()
+    }
+
+    private fun runGradleApp(): Process {
+        val command = listOf("./gradlew", "run")
+        val processBuilder = ProcessBuilder(command)
+        processBuilder.directory(File("."))
+        return processBuilder.start()
     }
 }
